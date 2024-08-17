@@ -8,6 +8,9 @@ extends CharacterBody2D
 @export var MAX_HEALTH = 3
 var health = MAX_HEALTH
 
+@export var MAX_MANA = 3
+var mana = MAX_MANA
+
 @export var SPEED = 300.0
 
 var direction = Vector2.ZERO
@@ -18,7 +21,7 @@ func _ready() -> void:
 	ticker.connect("timeout", tick)
 
 func tick() -> void:
-	beam.shoot()
+	beam.shoot(mana)
 
 func damage(who) -> void:
 	print("yeouch!")
@@ -37,7 +40,6 @@ func _process(delta: float) -> void:
 	if not (is_zero_approx(direction.x) and is_zero_approx(direction.y)) and not isHoldingDir:
 		facing = direction
 	
-	print(facing)
 	holder.rotation = lerp_angle(holder.rotation, facing.angle(), 0.2)
 	
 
