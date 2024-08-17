@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://6f4v67tm2hge"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_6n7gy"]
+[ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
+[ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://icon.svg" id="2_57udw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_23d4e"]
+radius = 29.0172
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 323)
+script = ExtResource("1_se7om")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(577, 323)
+script = ExtResource("1_6n7gy")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.449936, 0.449936)
+texture = ExtResource("2_57udw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_23d4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.754486, 0.562451, 1)
+texture = ExtResource("2_57udw")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0, 0.754486, 0.562451, 1)
+position = Vector2(800, 195)
+texture = ExtResource("2_57udw")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0, 0.754486, 0.562451, 1)
+position = Vector2(297, 451)
+texture = ExtResource("2_57udw")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0, 0.754486, 0.562451, 1)
+position = Vector2(1305, 460)
+texture = ExtResource("2_57udw")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(0, 0.754486, 0.562451, 1)
+position = Vector2(-100, 714)
+texture = ExtResource("2_57udw")
