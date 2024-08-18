@@ -1,87 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://6f4v67tm2hge"]
+[gd_scene load_steps=8 format=3 uid="uid://6f4v67tm2hge"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
 [ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_57udw"]
 [ext_resource type="PackedScene" uid="uid://bclpvhtlsbyc0" path="res://Player.tscn" id="2_u0msj"]
-[ext_resource type="Script" path="res://Mob.gd" id="4_mw5j1"]
+[ext_resource type="PackedScene" uid="uid://des6a48lvys6q" path="res://Mob.tscn" id="4_tx8bi"]
 [ext_resource type="Resource" uid="uid://c5x8nqjvbd44m" path="res://Item/Branch.tres" id="6_g1d15"]
 [ext_resource type="PackedScene" uid="uid://b45lj0xy5ag2p" path="res://interaction/FallenItem.tscn" id="6_itah4"]
 [ext_resource type="Resource" uid="uid://har5wk7u6u1h" path="res://Item/Autoaim.tres" id="7_g3cof"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ivi"]
-size = Vector2(46, 46)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u14cc"]
-size = Vector2(58, 58)
-
-[sub_resource type="Animation" id="Animation_uu5f7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.344383, 0.646407, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_paw6a"]
-resource_name = "death"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"stop"
-}, {
-"args": [],
-"method": &"death"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 0.344383, 0.646407, 1), Color(0.421875, 0.421875, 0.421875, 1), Color(0.423529, 0.423529, 0.423529, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_4qx14"]
-resource_name = "hit"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.5, 0.766667, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 0.344383, 0.646407, 1), Color(1, 1, 1, 1), Color(1, 0.344383, 0.646407, 1), Color(1, 1, 1, 1), Color(1, 0.344383, 0.646407, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tnn6q"]
-_data = {
-"RESET": SubResource("Animation_uu5f7"),
-"death": SubResource("Animation_paw6a"),
-"hit": SubResource("Animation_4qx14")
-}
 
 [node name="World" type="Node2D"]
 
@@ -116,113 +41,136 @@ modulate = Color(0, 0.754486, 0.562451, 1)
 position = Vector2(-100, 714)
 texture = ExtResource("2_57udw")
 
-[node name="Mob" type="CharacterBody2D" parent="."]
-position = Vector2(360, 260)
-collision_layer = 2
-collision_mask = 0
-motion_mode = 1
-script = ExtResource("4_mw5j1")
+[node name="Mob" parent="." instance=ExtResource("4_tx8bi")]
 
-[node name="Sprite2D" type="Sprite2D" parent="Mob"]
-modulate = Color(1, 0.344383, 0.646407, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_57udw")
+[node name="Mob2" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(567, 428)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob"]
+[node name="Mob3" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(751, 102)
 
-[node name="Area2D" type="Area2D" parent="Mob"]
+[node name="Mob4" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1020, 262)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob/Area2D"]
-shape = SubResource("RectangleShape2D_n2ivi")
+[node name="Mob5" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(182, -217)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob"]
-shape = SubResource("RectangleShape2D_u14cc")
+[node name="Mob6" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(389, -49)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mob"]
-libraries = {
-"": SubResource("AnimationLibrary_tnn6q")
-}
+[node name="Mob7" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(573, -375)
 
-[node name="Mob2" type="CharacterBody2D" parent="."]
-position = Vector2(360, 680)
-collision_layer = 2
-collision_mask = 0
-motion_mode = 1
-script = ExtResource("4_mw5j1")
+[node name="Mob8" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(842, -215)
 
-[node name="Sprite2D" type="Sprite2D" parent="Mob2"]
-modulate = Color(1, 0.344383, 0.646407, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_57udw")
+[node name="Mob9" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1311, -94)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob2"]
+[node name="Mob10" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1518, 74)
 
-[node name="Area2D" type="Area2D" parent="Mob2"]
+[node name="Mob11" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1702, -252)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob2/Area2D"]
-shape = SubResource("RectangleShape2D_n2ivi")
+[node name="Mob12" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1971, -92)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob2"]
-shape = SubResource("RectangleShape2D_u14cc")
+[node name="Mob13" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1226, 92)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mob2"]
-libraries = {
-"": SubResource("AnimationLibrary_tnn6q")
-}
+[node name="Mob14" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1433, 260)
 
-[node name="Mob3" type="CharacterBody2D" parent="."]
-position = Vector2(1253, 284)
-collision_layer = 2
-collision_mask = 0
-motion_mode = 1
-script = ExtResource("4_mw5j1")
+[node name="Mob15" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1617, -66)
 
-[node name="Sprite2D" type="Sprite2D" parent="Mob3"]
-modulate = Color(1, 0.344383, 0.646407, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_57udw")
+[node name="Mob16" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1886, 94)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob3"]
+[node name="Mob17" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(927, -294)
 
-[node name="Area2D" type="Area2D" parent="Mob3"]
+[node name="Mob18" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1134, -126)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob3/Area2D"]
-shape = SubResource("RectangleShape2D_n2ivi")
+[node name="Mob19" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1318, -452)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob3"]
-shape = SubResource("RectangleShape2D_u14cc")
+[node name="Mob20" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1587, -292)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mob3"]
-libraries = {
-"": SubResource("AnimationLibrary_tnn6q")
-}
+[node name="Mob21" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(673, -646)
 
-[node name="Mob4" type="CharacterBody2D" parent="."]
-position = Vector2(248, -70)
-collision_layer = 2
-collision_mask = 0
-motion_mode = 1
-script = ExtResource("4_mw5j1")
+[node name="Mob22" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(880, -478)
 
-[node name="Sprite2D" type="Sprite2D" parent="Mob4"]
-modulate = Color(1, 0.344383, 0.646407, 1)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("2_57udw")
+[node name="Mob23" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1064, -804)
 
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Mob4"]
+[node name="Mob24" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1333, -644)
 
-[node name="Area2D" type="Area2D" parent="Mob4"]
+[node name="Mob25" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1491, -938)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob4/Area2D"]
-shape = SubResource("RectangleShape2D_n2ivi")
+[node name="Mob26" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1698, -770)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mob4"]
-shape = SubResource("RectangleShape2D_u14cc")
+[node name="Mob27" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1882, -1096)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Mob4"]
-libraries = {
-"": SubResource("AnimationLibrary_tnn6q")
-}
+[node name="Mob28" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2151, -936)
+
+[node name="Mob29" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2016, -446)
+
+[node name="Mob30" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2223, -278)
+
+[node name="Mob31" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2407, -604)
+
+[node name="Mob32" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2676, -444)
+
+[node name="Mob33" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1440, -747)
+
+[node name="Mob34" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1647, -579)
+
+[node name="Mob35" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1831, -905)
+
+[node name="Mob36" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(2100, -745)
+
+[node name="Mob37" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(499, -544)
+
+[node name="Mob38" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(706, -376)
+
+[node name="Mob39" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(890, -702)
+
+[node name="Mob40" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1159, -542)
+
+[node name="Mob41" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(554, -256)
+
+[node name="Mob42" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(761, -88)
+
+[node name="Mob43" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(945, -414)
+
+[node name="Mob44" parent="." instance=ExtResource("4_tx8bi")]
+position = Vector2(1214, -254)
 
 [node name="WorldTicker" type="Timer" parent="."]
 unique_name_in_owner = true
@@ -238,12 +186,3 @@ item = ExtResource("6_g1d15")
 [node name="FallenItem3" parent="." instance=ExtResource("6_itah4")]
 position = Vector2(954, 546)
 item = ExtResource("7_g3cof")
-
-[connection signal="body_entered" from="Mob/Area2D" to="Mob" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Mob/Area2D" to="Mob" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Mob2/Area2D" to="Mob2" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Mob2/Area2D" to="Mob2" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Mob3/Area2D" to="Mob3" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Mob3/Area2D" to="Mob3" method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="Mob4/Area2D" to="Mob4" method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Mob4/Area2D" to="Mob4" method="_on_area_2d_body_exited"]

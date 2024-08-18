@@ -19,6 +19,7 @@ boot_splash/minimum_display_time=250
 [autoload]
 
 InteractionManager="*res://interaction/interaction area/InteractionManager.tscn"
+ExtendedBeamManager="*res://beam/ExtendedBeamManager.gd"
 
 [input]
 

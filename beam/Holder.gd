@@ -52,6 +52,11 @@ func rec_drop_all():
 	slots.resize(0)
 	return
 	
+func has_continue():
+	var matching = slots.filter(func (obj):
+		return obj.name == "CONTINUE").front()
+	return true if matching != null else false
+	
 func has_branch():
 	var matching = slots.filter(func (obj):
 		return obj.name == "BRANCH").front()

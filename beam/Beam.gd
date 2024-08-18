@@ -65,8 +65,14 @@ func _physics_process(delta: float) -> void:
 		print("COLLIDES!")
 		castPoint = to_local(get_collision_point())
 		var remaining_dmg = get_collider().damage(dmg)
-		if remaining_dmg > 0:
+		if remaining_dmg > 0 && holder.has_continue():
 			print("try continue", remaining_dmg)
+			ExtendedBeamManager.shoot(
+				remaining_dmg, 
+				get_collision_point(), 
+				global_rotation
+				)
+			remaining_dmg = 0
 		
 		rem_mana = remaining_dmg
 	

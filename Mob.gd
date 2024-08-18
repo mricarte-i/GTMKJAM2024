@@ -5,12 +5,18 @@ extends CharacterBody2D
 @onready var ticker = %WorldTicker
 @onready var target = %Player
 @onready var anim = $AnimationPlayer
+@onready var collider = $CollisionShape2D
 
 var last_pos: Vector2
 var isTouchingPlayer = false
 
 @export var MAX_HEALTH = 4
 var health = MAX_HEALTH
+@export var isBeingHit = false
+func disable_collision():
+	collider.set_deferred("disabled", true)
+func enable_collision():
+	collider.set_deferred("disabled", false)
 
 var stopped = false
 
