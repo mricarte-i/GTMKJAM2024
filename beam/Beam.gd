@@ -1,6 +1,8 @@
 extends RayCast2D
 
-@onready var player = %Player
+@onready var area = $Area2D
+@onready var player = get_tree().get_first_node_in_group("player")
+@onready var holder = get_tree().get_first_node_in_group("wand")
 @onready var particlesStart = $ParticlesStart
 @onready var line = $Line2D
 var isCasting = false
@@ -47,6 +49,14 @@ func return_mana():
 	player.mana += rem_mana
 
 func _physics_process(delta: float) -> void:
+	if holder.has_autoaim() and area.has_overlapping_bodies():
+		print("knows")
+		var enemies = area.get_overlapping_bodies()
+		enemies.sort_custom(InteractionManager.sort_by_dist_to_player)
+		var facing = enemies[0].global_position - global_position
+		global_rotation = lerp_angle(global_rotation, facing.angle(), 0.8)
+
+	
 	var castPoint:= target_position
 	force_raycast_update()
 	

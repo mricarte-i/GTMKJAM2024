@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_ihuli")
+name = "CONTINUE"
 itemScene = ExtResource("1_7s8cr")
 hint = "pick up 'CONTINUE'"
 texture = ExtResource("3_l24dv")

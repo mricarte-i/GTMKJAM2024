@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("1_x7wcg")
+name = "AUTOAIM"
 itemScene = ExtResource("1_bfa10")
 hint = "pick up 'AUTOAIM'"
 texture = ExtResource("3_g5xjw")

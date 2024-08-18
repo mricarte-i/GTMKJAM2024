@@ -40,3 +40,10 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_76nwc")
 texture = ExtResource("2_g0pef")
 lifetime = 0.3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(17, 69, 41, 137, 124, 119, 182, 70, 201, 0, 177, -65, 112, -128, 34, -137, 9, -67, 0, 0)

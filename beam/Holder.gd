@@ -5,6 +5,7 @@ extends Node2D
 @export var fallenItem = preload("res://interaction/FallenItem.tscn")
 @export var actionItem = preload("res://Item/ActionItem.tscn")
 @export var beamTemp = preload("res://beam/Beam.tscn")
+@export var dubBeamTemp = preload("res://beam/DoubleBeam.tscn")
 @onready var end = $end
 
 # Called when the node enters the scene tree for the first time.
@@ -12,7 +13,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func shoot(mana):
-	var beam = beamTemp.instantiate()
+	var beam = beamTemp.instantiate() if not has_branch() else dubBeamTemp.instantiate()
+	#var beam = beamTemp.instantiate()
 	get_tree().root.get_child(0).add_child(beam)
 	var pos = end
 	if slots.size() > 0 && end.get_child_count() > 0:
@@ -49,7 +51,16 @@ func rec_drop_all():
 		end.get_child(0).remove_last_action()
 	slots.resize(0)
 	return
+	
+func has_branch():
+	var matching = slots.filter(func (obj):
+		return obj.name == "BRANCH").front()
+	return true if matching != null else false
 
+func has_autoaim():
+	var matching = slots.filter(func (obj):
+		return obj.name == "AUTOAIM").front()
+	return true if matching != null else false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

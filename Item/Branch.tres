@@ -6,6 +6,7 @@
 
 [resource]
 script = ExtResource("2_522vi")
+name = "BRANCH"
 itemScene = ExtResource("1_b2fij")
 hint = "pick up 'BRANCH'"
 texture = ExtResource("3_l2mcr")
