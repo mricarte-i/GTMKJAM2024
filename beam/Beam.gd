@@ -1,9 +1,12 @@
 extends RayCast2D
 
+@onready var player = %Player
 @onready var particlesStart = $ParticlesStart
 @onready var line = $Line2D
 var isCasting = false
 var dmg = 0
+
+var rem_mana = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,7 +15,9 @@ func _ready() -> void:
 
 func shoot(value) -> void:
 	dmg = value
+	rem_mana = value
 	setIsCasting(true)
+
 func end() -> void:
 	setIsCasting(false)
 
@@ -33,7 +38,13 @@ func appear():
 func dissapear():
 	var tween = get_tree().create_tween()
 	tween.tween_property(line, "width", 0.0, 0.1)
-	
+	return_mana()
+	queue_free()
+
+func return_mana():
+	if player == null:
+		return
+	player.mana += rem_mana
 
 func _physics_process(delta: float) -> void:
 	var castPoint:= target_position
@@ -47,6 +58,7 @@ func _physics_process(delta: float) -> void:
 		if remaining_dmg > 0:
 			print("try continue", remaining_dmg)
 		
+		rem_mana = remaining_dmg
 	
 	line.points[1] = castPoint
 	

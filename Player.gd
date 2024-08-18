@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-@onready var holder = $Holder
-@onready var beam = $Holder/RayCast2D
 
 @onready var ticker = %WorldTicker
 
@@ -10,6 +8,7 @@ var health = MAX_HEALTH
 
 @export var MAX_MANA = 3
 var mana = MAX_MANA
+@onready var holder = $Holder
 
 @export var SPEED = 300.0
 
@@ -21,7 +20,9 @@ func _ready() -> void:
 	ticker.connect("timeout", tick)
 
 func tick() -> void:
-	beam.shoot(mana)
+	if mana > 0:
+		holder.shoot(mana)
+		mana = 0
 
 func damage(who) -> void:
 	print("yeouch!")
@@ -41,7 +42,6 @@ func _process(delta: float) -> void:
 		facing = direction
 	
 	holder.rotation = lerp_angle(holder.rotation, facing.angle(), 0.2)
-	
 
 func _physics_process(delta: float) -> void:
 	if is_zero_approx(direction.x) and is_zero_approx(direction.y):
@@ -49,5 +49,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 	else:
 		velocity = direction * SPEED
-
+	
 	move_and_slide()
+
+
+func _on_mana_regen_timeout() -> void:
+	mana += 1
+	print(mana, "mana")

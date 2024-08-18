@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://0k20xdohhfgo"]
+
+[ext_resource type="Texture2D" uid="uid://c0lwmdifsysqf" path="res://assets/Paper UI/Plain/10.png" id="1_6urt7"]
+[ext_resource type="Script" path="res://unused/Slot.gd" id="2_i7l0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uqri"]
+atlas = ExtResource("1_6urt7")
+region = Rect2(268, 876, 32, 36)
+
+[node name="slot" type="TextureRect"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_left = 16.0
+offset_top = 48.0
+offset_right = -272.128
+offset_bottom = -11.992
+texture = SubResource("AtlasTexture_0uqri")
+script = ExtResource("2_i7l0c")

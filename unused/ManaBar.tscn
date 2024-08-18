@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2bnv1ro26008"]
+
+[ext_resource type="Texture2D" uid="uid://bf6w7adwa38i2" path="res://assets/progress-bar-fill.png" id="1_q12vw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_govkv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_offset = Vector2(4, 4)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5770c"]
+texture = ExtResource("1_q12vw")
+texture_margin_left = 16.0
+texture_margin_top = 5.0
+texture_margin_right = 16.0
+texture_margin_bottom = 5.0
+
+[node name="ManaBar" type="ProgressBar"]
+z_index = 1
+texture_filter = 1
+offset_right = 240.0
+offset_bottom = 24.0
+theme_override_styles/background = SubResource("StyleBoxFlat_govkv")
+theme_override_styles/fill = SubResource("StyleBoxTexture_5770c")
+step = 1.0
+value = 100.0
+show_percentage = false

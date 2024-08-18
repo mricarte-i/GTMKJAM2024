@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://har5wk7u6u1h"]
+
+[ext_resource type="PackedScene" uid="uid://b53wiem2heyii" path="res://Item/ActionItem.tscn" id="1_bfa10"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_x7wcg"]
+[ext_resource type="Texture2D" uid="uid://bnbxxubfq78ve" path="res://assets/Paper UI/1 Sprites/Content/6 High lighter/6.png" id="3_g5xjw"]
+
+[resource]
+script = ExtResource("1_x7wcg")
+itemScene = ExtResource("1_bfa10")
+hint = "pick up 'AUTOAIM'"
+texture = ExtResource("3_g5xjw")

@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://s2mpgb6gdreh"]
+
+[ext_resource type="Script" path="res://beam/Beam.gd" id="1_tvi82"]
+[ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_g0pef"]
+
+[sub_resource type="Gradient" id="Gradient_c7mu6"]
+offsets = PackedFloat32Array(0, 0.537367, 0.672598, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3peyh"]
+gradient = SubResource("Gradient_c7mu6")
+
+[sub_resource type="Curve" id="Curve_heyk1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.543689, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.0542203, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_86yst"]
+curve = SubResource("Curve_heyk1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76nwc"]
+particle_flag_disable_z = true
+initial_velocity_max = 110.14
+gravity = Vector3(0, 0, 0)
+scale_min = 0.1
+scale_max = 0.25
+scale_curve = SubResource("CurveTexture_86yst")
+color_ramp = SubResource("GradientTexture1D_3peyh")
+
+[node name="Beam" type="RayCast2D"]
+target_position = Vector2(200, 0)
+collision_mask = 2
+script = ExtResource("1_tvi82")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 200, 0)
+default_color = Color(0.648, 5.946, 12.972, 1)
+
+[node name="ParticlesStart" type="GPUParticles2D" parent="."]
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_76nwc")
+texture = ExtResource("2_g0pef")
+lifetime = 0.3

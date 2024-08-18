@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://w1mm1w1f5alq"]
+
+[ext_resource type="Texture2D" uid="uid://bq0khgv4r5evx" path="res://assets/Paper UI/1 Sprites/Content/1 Items/1.png" id="1_sc4he"]
+[ext_resource type="Script" path="res://unused/DragObject.gd" id="2_hvggx"]
+
+[node name="drag_object" type="TextureRect"]
+texture_filter = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_left = 128.0
+offset_top = 56.0
+offset_right = -160.128
+offset_bottom = -15.992
+texture = ExtResource("1_sc4he")
+stretch_mode = 5
+script = ExtResource("2_hvggx")

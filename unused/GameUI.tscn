@@ -1,0 +1,187 @@
+[gd_scene load_steps=14 format=3 uid="uid://dsheih8yw6gir"]
+
+[ext_resource type="Texture2D" uid="uid://0dd3vye8shac" path="res://assets/Paper UI/Plain/6.png" id="1_pjgoj"]
+[ext_resource type="Texture2D" uid="uid://bs02c5dkqesog" path="res://assets/Paper UI/Folding & Cutout/7.png" id="2_6pqqv"]
+[ext_resource type="Texture2D" uid="uid://cygdp3v266k83" path="res://assets/progress-bar-thing.png" id="3_atcxk"]
+[ext_resource type="Texture2D" uid="uid://b2qld5nybv7b7" path="res://assets/progress-bar-mask.png" id="4_g7un7"]
+[ext_resource type="PackedScene" uid="uid://d2bnv1ro26008" path="res://unused/ManaBar.tscn" id="5_7vhu6"]
+[ext_resource type="Texture2D" uid="uid://bq4tilp5otk6s" path="res://assets/Paper UI/Plain/5.png" id="5_s2m7v"]
+[ext_resource type="Texture2D" uid="uid://c0lwmdifsysqf" path="res://assets/Paper UI/Plain/10.png" id="6_dwpca"]
+[ext_resource type="PackedScene" uid="uid://0k20xdohhfgo" path="res://unused/Slot.tscn" id="7_wh0mg"]
+[ext_resource type="Script" path="res://unused/TrashSlot.gd" id="9_fafux"]
+[ext_resource type="PackedScene" uid="uid://w1mm1w1f5alq" path="res://unused/DraggableObject.tscn" id="10_2vace"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ti50c"]
+atlas = ExtResource("5_s2m7v")
+region = Rect2(172, 784, 391, 175)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tppyl"]
+atlas = ExtResource("1_pjgoj")
+region = Rect2(1616, 576, 224, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j34kj"]
+atlas = ExtResource("6_dwpca")
+region = Rect2(400, 1136, 48, 48)
+
+[node name="GameUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Stats" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -824.0
+offset_bottom = -544.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Control/Stats"]
+visible = false
+modulate = Color(0.78125, 0.674438, 0.674438, 1)
+texture_filter = 1
+position = Vector2(168, 48)
+rotation = -0.0261799
+scale = Vector2(1.42857, 1)
+texture = ExtResource("1_pjgoj")
+region_enabled = true
+region_rect = Rect2(1616, 576, 224, 96)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Control/Stats"]
+visible = false
+texture_filter = 1
+position = Vector2(160, 48)
+scale = Vector2(1.42857, 1)
+texture = ExtResource("1_pjgoj")
+region_enabled = true
+region_rect = Rect2(1616, 576, 224, 96)
+
+[node name="NinePatchRect3" type="NinePatchRect" parent="Control/Stats"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_top = -16.0
+offset_right = 7.87198
+offset_bottom = 16.008
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_ti50c")
+
+[node name="NinePatchRect2" type="NinePatchRect" parent="Control/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_right = -0.128021
+offset_bottom = 0.00799561
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_tppyl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control/Stats"]
+modulate = Color(0, 0.85, 0.595, 1)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_right = -0.128021
+offset_bottom = 0.00799561
+texture = ExtResource("2_6pqqv")
+region_rect = Rect2(792, 360, 368, 64)
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="MenaBar Holder" type="NinePatchRect" parent="Control/Stats"]
+clip_children = 2
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_left = 8.0
+offset_top = 24.0
+offset_right = -72.128
+offset_bottom = -55.992
+texture = ExtResource("3_atcxk")
+region_rect = Rect2(0, 0, 48, 16)
+patch_margin_left = 16
+patch_margin_top = 4
+patch_margin_right = 16
+patch_margin_bottom = 4
+
+[node name="ManaBar Mask" type="NinePatchRect" parent="Control/Stats/MenaBar Holder"]
+clip_children = 1
+z_index = 2
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_g7un7")
+region_rect = Rect2(0, 0, 48, 16)
+patch_margin_left = 16
+patch_margin_top = 4
+patch_margin_right = 16
+patch_margin_bottom = 4
+
+[node name="ManaBar" parent="Control/Stats/MenaBar Holder/ManaBar Mask" instance=ExtResource("5_7vhu6")]
+show_behind_parent = true
+z_index = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="drag_object" parent="Control/Stats" instance=ExtResource("10_2vace")]
+layout_mode = 1
+offset_left = 96.0
+offset_right = -192.128
+
+[node name="slot" parent="Control/Stats" instance=ExtResource("7_wh0mg")]
+layout_mode = 1
+anchor_left = 0.049
+anchor_top = 0.462
+anchor_right = 0.146
+anchor_bottom = 0.808
+offset_left = -0.0720005
+offset_top = -0.0480003
+offset_right = 0.111996
+offset_bottom = -0.0320053
+
+[node name="trash_slot" type="TextureRect" parent="Control/Stats"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.976
+anchor_bottom = 0.923
+offset_left = 272.0
+offset_right = -0.128021
+offset_bottom = -47.992
+texture = SubResource("AtlasTexture_j34kj")
+stretch_mode = 5
+script = ExtResource("9_fafux")
