@@ -6,6 +6,6 @@ extends Node2D
 func _ready() -> void:
 	pass # Replace with function body.
 
-func shoot(value, plus: bool = false) -> void:
+func shoot(value, plus: int = 0) -> void:
 	beam1.shoot(value/2, plus)
 	beam2.shoot(value/2, plus)

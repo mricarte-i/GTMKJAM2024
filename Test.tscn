@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6f4v67tm2hge"]
+[gd_scene load_steps=17 format=3 uid="uid://6f4v67tm2hge"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
 [ext_resource type="Script" path="res://Mobs/SpawnerManager.gd" id="2_5cixv"]
@@ -10,7 +10,12 @@
 [ext_resource type="Resource" uid="uid://c5x8nqjvbd44m" path="res://Item/Branch.tres" id="6_g1d15"]
 [ext_resource type="PackedScene" uid="uid://b45lj0xy5ag2p" path="res://interaction/FallenItem.tscn" id="6_itah4"]
 [ext_resource type="Resource" uid="uid://501cu50e3y62" path="res://Mobs/SlimeMob.tres" id="6_yyawk"]
+[ext_resource type="Resource" uid="uid://hhq2l3r1bq1p" path="res://Mobs/BallerMob.tres" id="7_8wdfh"]
 [ext_resource type="Resource" uid="uid://har5wk7u6u1h" path="res://Item/Autoaim.tres" id="7_g3cof"]
+[ext_resource type="Resource" uid="uid://bahfawm7pk6tc" path="res://Mobs/PitagorasMob.tres" id="8_qjqb7"]
+[ext_resource type="Script" path="res://ItemSpawner.gd" id="9_jqa3w"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="10_r4r7y"]
+[ext_resource type="Resource" uid="uid://4uh5xsx0kud2" path="res://Item/Continue.tres" id="13_1rnlx"]
 
 [node name="World" type="Node2D" groups=["world"]]
 
@@ -22,8 +27,9 @@ script = ExtResource("1_se7om")
 script = ExtResource("2_5cixv")
 
 [node name="1" type="Node2D" parent="Camera2D/SpawnerManager"]
+visible = false
 script = ExtResource("3_l24k2")
-mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("4_stbkw")])
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw")])
 
 [node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/1"]
 position = Vector2(768, -328)
@@ -36,6 +42,138 @@ position = Vector2(654, -430)
 
 [node name="Node2D4" type="Node2D" parent="Camera2D/SpawnerManager/1"]
 position = Vector2(654, 441)
+
+[node name="2" type="Node2D" parent="Camera2D/SpawnerManager"]
+visible = false
+script = ExtResource("3_l24k2")
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("6_yyawk")])
+
+[node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(550, -328)
+
+[node name="Node2D2" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(550, 327)
+
+[node name="Node2D3" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(436, -430)
+
+[node name="Node2D4" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(436, 441)
+
+[node name="Node2D5" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(-506, -328)
+
+[node name="Node2D6" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(-506, 327)
+
+[node name="Node2D7" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(-338, -430)
+
+[node name="Node2D8" type="Node2D" parent="Camera2D/SpawnerManager/2"]
+position = Vector2(-338, 441)
+
+[node name="3" type="Node2D" parent="Camera2D/SpawnerManager"]
+visible = false
+script = ExtResource("3_l24k2")
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("6_yyawk"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("6_yyawk"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("4_stbkw")])
+
+[node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(550, -263)
+
+[node name="Node2D2" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(520, 327)
+
+[node name="Node2D3" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(396, -272)
+
+[node name="Node2D4" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(406, 441)
+
+[node name="Node2D5" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-506, -264)
+
+[node name="Node2D9" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(422, -376)
+
+[node name="Node2D10" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-388, -376)
+
+[node name="Node2D6" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-506, 327)
+
+[node name="Node2D7" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-378, -272)
+
+[node name="Node2D8" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-368, 441)
+
+[node name="Node2D11" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(370, 313)
+
+[node name="Node2D12" type="Node2D" parent="Camera2D/SpawnerManager/3"]
+position = Vector2(-364, 313)
+
+[node name="4" type="Node2D" parent="Camera2D/SpawnerManager"]
+script = ExtResource("3_l24k2")
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("6_yyawk"), ExtResource("7_8wdfh"), ExtResource("6_yyawk"), ExtResource("7_8wdfh"), ExtResource("7_8wdfh"), ExtResource("6_yyawk"), ExtResource("7_8wdfh"), ExtResource("6_yyawk")])
+
+[node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(54, -342)
+
+[node name="Node2D2" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(-48, -342)
+
+[node name="Node2D3" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(54, 340)
+
+[node name="Node2D5" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(510, -342)
+
+[node name="Node2D6" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(510, 340)
+
+[node name="Node2D4" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(-48, 340)
+
+[node name="Node2D7" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(-426, -342)
+
+[node name="Node2D8" type="Node2D" parent="Camera2D/SpawnerManager/4"]
+position = Vector2(-426, 340)
+
+[node name="5" type="Node2D" parent="Camera2D/SpawnerManager"]
+rotation = 1.57079
+scale = Vector2(1.16, 1.16)
+script = ExtResource("3_l24k2")
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("8_qjqb7"), ExtResource("7_8wdfh"), ExtResource("6_yyawk"), ExtResource("7_8wdfh"), ExtResource("7_8wdfh"), ExtResource("6_yyawk"), ExtResource("7_8wdfh"), ExtResource("8_qjqb7")])
+
+[node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(54, -342)
+
+[node name="Node2D2" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(-48, -342)
+
+[node name="Node2D3" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(54, 340)
+
+[node name="Node2D5" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(510, -342)
+
+[node name="Node2D6" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(510, 340)
+
+[node name="Node2D4" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(-48, 340)
+
+[node name="Node2D7" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(-426, -342)
+
+[node name="Node2D8" type="Node2D" parent="Camera2D/SpawnerManager/5"]
+position = Vector2(-426, 340)
+
+[node name="ItemSpawner" type="Node2D" parent="Camera2D"]
+script = ExtResource("9_jqa3w")
+itemPool = Array[ExtResource("10_r4r7y")]([ExtResource("7_g3cof"), ExtResource("6_g1d15"), ExtResource("13_1rnlx")])
 
 [node name="Player" parent="." instance=ExtResource("2_u0msj")]
 unique_name_in_owner = true

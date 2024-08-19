@@ -25,7 +25,13 @@ func register_camera(new_camera):
 	camera = new_camera
 func unregister_camera():
 	camera = null
-
+	
+var time = 0
+func update_time(value):
+	time = value
+	if time == 420:
+		game_over()
+	
 func add_xp(value):
 	if player == null:
 		return
@@ -55,7 +61,7 @@ func add_xp(value):
 		tween.tween_property(
 			camera, "zoom", Vector2(0.8, 0.8), 0.5
 		).set_ease(Tween.EASE_OUT)
-	elif xp in range(80, 115) and lvl < 4:
+	elif xp in range(80, 160) and lvl < 4:
 		lvl = 4
 		player.MAX_MANA = 16
 		print("LVL.UP")
@@ -63,7 +69,7 @@ func add_xp(value):
 		tween.tween_property(
 			camera, "zoom", Vector2(0.75, 0.75), 0.5
 		).set_ease(Tween.EASE_OUT)
-	elif xp in range(115, 160) and lvl < 5:
+	elif xp in range(160, 400) and lvl < 5:
 		lvl = 5
 		player.MAX_MANA = 32
 		print("LVL.UP")
@@ -71,7 +77,7 @@ func add_xp(value):
 		tween.tween_property(
 			camera, "zoom", Vector2(0.7, 0.7), 0.5
 		).set_ease(Tween.EASE_OUT)
-	elif xp in range(160, 210) and lvl < 6:
+	elif xp in range(400, 1000) and lvl < 6:
 		lvl = 6
 		player.MAX_MANA = 64
 		print("LVL.UP")
@@ -79,7 +85,7 @@ func add_xp(value):
 		tween.tween_property(
 			camera, "zoom", Vector2(0.65, 0.65), 0.5
 		).set_ease(Tween.EASE_OUT)
-	elif xp in range(210, 9999) and lvl < 7:
+	elif xp in range(1000, 9999) and lvl < 7:
 		lvl = 7
 		player.MAX_MANA = 128
 		print("WINNER IS U")
@@ -87,16 +93,8 @@ func add_xp(value):
 		tween.tween_property(
 			camera, "zoom", Vector2(0.6, 0.6), 0.5
 		).set_ease(Tween.EASE_OUT)
-		game_over()
+		#game_over()
 	return
-	var matching = Lvls.find_key(xp)
-	var player = get_tree().get_first_node_in_group("player")
-	if matching != null and player != null:
-		print("LVL.UP")
-		player.MAX_MANA += 1
-		if matching == 7:
-			print("THE WINNER IS YOU")
-			game_over()
 	
 
 func game_start():

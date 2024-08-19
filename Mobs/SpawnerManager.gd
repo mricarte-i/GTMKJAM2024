@@ -10,10 +10,10 @@ func _ready() -> void:
 
 func tick() -> void:
 	ticks +=1
-	if ticks == 90:
+	GlobalManager.update_time(ticks)
+	if ticks % 60 == 0:
 		difficulty +=1
-		ticks = 0
-	if ticks % 7 == 0:
+	if ticks % 5 == 0:
 		spawn()
 
 func spawn():

@@ -7,20 +7,6 @@
 layer = 10
 script = ExtResource("1_4xufw")
 
-[node name="Main Menu" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureButton" type="TextureButton" parent="Main Menu"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="HUD" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -62,6 +48,33 @@ theme_override_font_sizes/font_size = 32
 text = "XP: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="time" type="Label" parent="HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 453.0
+offset_top = 1.0
+offset_right = 640.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 32
+text = "TIME: 00:00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="CHOOSE" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="CHOOSE"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Pause Menu" type="Control" parent="."]
 visible = false
