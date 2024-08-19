@@ -1,11 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://6f4v67tm2hge"]
+[gd_scene load_steps=10 format=3 uid="uid://6f4v67tm2hge"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
 [ext_resource type="Script" path="res://Mobs/SpawnerManager.gd" id="2_5cixv"]
 [ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_57udw"]
 [ext_resource type="PackedScene" uid="uid://bclpvhtlsbyc0" path="res://Player.tscn" id="2_u0msj"]
 [ext_resource type="Script" path="res://Spawner.gd" id="3_l24k2"]
-[ext_resource type="Script" path="res://Mobs/MobKind.gd" id="4_3xnbu"]
 [ext_resource type="Resource" uid="uid://wfanrb85nkls" path="res://Mobs/BasicMob.tres" id="4_stbkw"]
 [ext_resource type="Resource" uid="uid://c5x8nqjvbd44m" path="res://Item/Branch.tres" id="6_g1d15"]
 [ext_resource type="PackedScene" uid="uid://b45lj0xy5ag2p" path="res://interaction/FallenItem.tscn" id="6_itah4"]
@@ -22,7 +21,7 @@ script = ExtResource("2_5cixv")
 
 [node name="1" type="Node2D" parent="Camera2D/SpawnerManager"]
 script = ExtResource("3_l24k2")
-mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw")])
+mobKinds = [ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw")]
 
 [node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/1"]
 position = Vector2(768, -328)

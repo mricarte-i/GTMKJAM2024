@@ -7,6 +7,7 @@ extends RayCast2D
 @onready var line = $Line2D
 var isCasting = false
 var dmg = 0
+var hasAimed = false
 
 var rem_mana = 0
 
@@ -18,6 +19,7 @@ func _ready() -> void:
 func shoot(value) -> void:
 	dmg = value
 	rem_mana = value
+	#print("got",rem_mana)
 	setIsCasting(true)
 
 func end() -> void:
@@ -46,35 +48,32 @@ func dissapear():
 func return_mana():
 	if player == null:
 		return
+	#print("ret",rem_mana)
 	player.mana += rem_mana
 
 func _physics_process(delta: float) -> void:
-	if holder.has_autoaim() and area.has_overlapping_bodies():
-		print("knows")
+	if !hasAimed and holder != null and holder.has_autoaim() and area.has_overlapping_bodies():
 		var enemies = area.get_overlapping_bodies()
 		enemies.sort_custom(InteractionManager.sort_by_dist_to_player)
 		var facing = enemies[0].global_position - global_position
-		global_rotation = lerp_angle(global_rotation, facing.angle(), 0.8)
+		global_rotation = facing.angle() #lerp_angle(global_rotation, facing.angle(), 0.8)
+		hasAimed = true
 
-	
 	var castPoint:= target_position
 	force_raycast_update()
-	
-	
+
+
 	if is_colliding():
-		print("COLLIDES!")
 		castPoint = to_local(get_collision_point())
 		var remaining_dmg = get_collider().damage(dmg)
 		if remaining_dmg > 0 && holder.has_continue():
-			print("try continue", remaining_dmg)
 			ExtendedBeamManager.shoot(
-				remaining_dmg, 
-				get_collision_point(), 
+				remaining_dmg,
+				get_collision_point(),
 				global_rotation
 				)
 			remaining_dmg = 0
-		
+
 		rem_mana = remaining_dmg
-	
+
 	line.points[1] = castPoint
-	

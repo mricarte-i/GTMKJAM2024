@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b53wiem2heyii" path="res://Item/ActionItem.tscn" id="1_bfa10"]
 [ext_resource type="Script" path="res://Item/Item.gd" id="1_x7wcg"]
-[ext_resource type="Texture2D" uid="uid://bnbxxubfq78ve" path="res://assets/Paper UI/1 Sprites/Content/6 High lighter/6.png" id="3_g5xjw"]
+[ext_resource type="Texture2D" uid="uid://btmyyoau6ep0w" path="res://sprites/Autoaim.tres" id="3_mpqts"]
 
 [resource]
 script = ExtResource("1_x7wcg")
 name = "AUTOAIM"
 itemScene = ExtResource("1_bfa10")
 hint = "pick up 'AUTOAIM'"
-texture = ExtResource("3_g5xjw")
+texture = ExtResource("3_mpqts")

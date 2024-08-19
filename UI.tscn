@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0n8p7ny2sxnb"]
+
+[ext_resource type="Script" path="res://UIManager.gd" id="1_4xufw"]
+[ext_resource type="FontFile" uid="uid://cic6d4dtgf7k0" path="res://assets/monogram.ttf" id="2_17xbt"]
+
+[node name="Ui" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_4xufw")
+
+[node name="Main Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureButton" type="TextureButton" parent="Main Menu"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HUD" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="hp" type="Label" parent="HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_right = 169.0
+offset_bottom = 38.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 48
+text = "HEALTH: 3"
+
+[node name="mana" type="Label" parent="HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 169.0
+offset_bottom = 78.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 32
+text = "MANA: 3"
+
+[node name="xp" type="Label" parent="HUD"]
+texture_filter = 1
+layout_mode = 0
+offset_left = -1.0
+offset_top = 439.0
+offset_right = 640.0
+offset_bottom = 480.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 32
+text = "XP: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Pause Menu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

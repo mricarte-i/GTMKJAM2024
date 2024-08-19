@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://des6a48lvys6q"]
 
-[ext_resource type="Script" path="res://Mob.gd" id="1_cistt"]
+[ext_resource type="Script" path="res://Mobs/Mob.gd" id="1_cistt"]
 [ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_cu1kg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2ivi"]

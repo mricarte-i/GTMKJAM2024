@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b53wiem2heyii" path="res://Item/ActionItem.tscn" id="1_b2fij"]
 [ext_resource type="Script" path="res://Item/Item.gd" id="2_522vi"]
-[ext_resource type="Texture2D" uid="uid://d2mmtrtmktqf7" path="res://assets/Paper UI/1 Sprites/Content/1 Items/10.png" id="3_l2mcr"]
+[ext_resource type="Texture2D" uid="uid://djbuwmdvvftms" path="res://sprites/Branch.tres" id="3_dl8h3"]
 
 [resource]
 script = ExtResource("2_522vi")
 name = "BRANCH"
 itemScene = ExtResource("1_b2fij")
 hint = "pick up 'BRANCH'"
-texture = ExtResource("3_l2mcr")
+texture = ExtResource("3_dl8h3")

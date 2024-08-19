@@ -53,16 +53,22 @@ func rec_drop_all():
 	return
 	
 func has_continue():
+	if slots.size() == 0:
+		return false
 	var matching = slots.filter(func (obj):
 		return obj.name == "CONTINUE").front()
 	return true if matching != null else false
 	
 func has_branch():
+	if slots.size() == 0:
+		return false
 	var matching = slots.filter(func (obj):
 		return obj.name == "BRANCH").front()
 	return true if matching != null else false
 
 func has_autoaim():
+	if slots.size() == 0:
+		return false
 	var matching = slots.filter(func (obj):
 		return obj.name == "AUTOAIM").front()
 	return true if matching != null else false

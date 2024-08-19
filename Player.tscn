@@ -1,8 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://bclpvhtlsbyc0"]
+[gd_scene load_steps=7 format=3 uid="uid://bclpvhtlsbyc0"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_x8iy7"]
-[ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_cnv8s"]
+[ext_resource type="Texture2D" uid="uid://duih53mnutwek" path="res://sprites/spritesheet.png" id="2_tmxh5"]
 [ext_resource type="Script" path="res://beam/Holder.gd" id="3_ntgts"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otcu3"]
+atlas = ExtResource("2_tmxh5")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1r1t"]
+atlas = ExtResource("2_tmxh5")
+region = Rect2(96, 16, 16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_23d4e"]
 radius = 29.0172
@@ -14,22 +22,22 @@ motion_mode = 1
 script = ExtResource("1_x8iy7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.449936, 0.449936)
-texture = ExtResource("2_cnv8s")
+texture_filter = 1
+texture = SubResource("AtlasTexture_otcu3")
 
 [node name="Holder" type="Node2D" parent="." groups=["wand"]]
 script = ExtResource("3_ntgts")
 
 [node name="Sprite2D" type="Sprite2D" parent="Holder"]
-position = Vector2(60.7999, 0)
-scale = Vector2(0.199999, 0.199999)
-texture = ExtResource("2_cnv8s")
+texture_filter = 1
+position = Vector2(61, 0)
+texture = SubResource("AtlasTexture_k1r1t")
 
 [node name="end" type="Node2D" parent="Holder"]
-position = Vector2(73.7999, 0)
+position = Vector2(69, 0)
 
 [node name="ManaRegen" type="Timer" parent="."]
-wait_time = 0.006
+wait_time = 0.75
 autostart = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]

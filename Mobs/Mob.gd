@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 @export var SPEED = 90.0
 
-@onready var ticker = %WorldTicker
-@onready var target = %Player
+@onready var ticker = get_tree().get_first_node_in_group("worldticker")
+@onready var target = get_tree().get_first_node_in_group("player")
+
 @onready var anim = $AnimationPlayer
+@onready var sprite = $Sprite2D
 @onready var collider = $CollisionShape2D
 
 var last_pos: Vector2
@@ -19,43 +21,57 @@ func enable_collision():
 	collider.set_deferred("disabled", false)
 
 var stopped = false
+@export var kind: MobKind:
+	set(value):
+		if kind == value:
+			return
+		kind = value
+		if is_node_ready():
+			_update()
+
+func _update() -> void:
+	if kind != null:
+		sprite.texture = kind.texture
+		SPEED = kind.speed
+		MAX_HEALTH = kind.hp
+		health = MAX_HEALTH
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	last_pos = target.global_position
 	ticker.connect("timeout", tick)
+	_update()
 
 func tick() -> void:
 	if stopped:
 		return
-		
+
 	if isTouchingPlayer:
-		print("HIT YA!")
 		target.damage(self)
 
 func damage(value):
 	if stopped:
 		return value
-		
+
 	var diff = health - value
 	health -= value
+	GlobalManager.display_dmg(value, global_position)
 	if diff < 0:
 		#start death anim
 		anim.play("death")
-		print("dead enemy")
 		return value - health
 	else:
 		#hit anim
 		anim.play("hit")
-		print("ouchie")
 		return 0
-		
+
 func stop():
 	stopped = true
-	
+
 func death():
+	GlobalManager.add_xp(kind.hp)
 	queue_free()
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if stopped:
@@ -66,18 +82,16 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	if not target == null:
 		last_pos = target.global_position
-	else: 
+	else:
 		return
 
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print(body.name)
 	if body == target:
 		isTouchingPlayer = true
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	print(body.name)
 	if body == target:
 		isTouchingPlayer = false

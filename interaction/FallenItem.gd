@@ -18,7 +18,6 @@ func _ready() -> void:
 	_update()
 
 func _on_interact():
-	print("IM THE ITEM YOU CLICKED!")
 	holder.add_item(item)
 	queue_free()
 

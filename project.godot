@@ -20,6 +20,14 @@ boot_splash/minimum_display_time=250
 
 InteractionManager="*res://interaction/interaction area/InteractionManager.tscn"
 ExtendedBeamManager="*res://beam/ExtendedBeamManager.gd"
+GlobalManager="*res://GlobalManager.gd"
+Ui="*res://UI.tscn"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=480
+window/stretch/mode="canvas_items"
 
 [input]
 
