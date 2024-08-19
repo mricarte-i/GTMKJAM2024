@@ -8,8 +8,6 @@ extends CanvasLayer
 func _ready():
 	pass
 
-
-
 func _process(delta: float) -> void:
 	if GlobalManager.game_state == "playing":
 		if GlobalManager.player != null:

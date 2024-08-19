@@ -5,6 +5,15 @@ extends Node
 @export var beamTemp = preload("res://beam/Beam.tscn")
 @export var dubBeamTemp = preload("res://beam/DoubleBeam.tscn")
 
+@export var MAX_SPAWNED_BEAMS = 5
+@export var spawnedBeams = 0
+
+func remove_one():
+	spawnedBeams -= 1
+
+func can_shoot():
+	return spawnedBeams < MAX_SPAWNED_BEAMS
+
 func shoot(mana, pos, rot):
 	var beam = beamTemp.instantiate() if not holder.has_branch() else dubBeamTemp.instantiate()
 	#var beam = beamTemp.instantiate()
@@ -12,4 +21,6 @@ func shoot(mana, pos, rot):
 	
 	beam.position = pos
 	beam.rotation = rot
-	beam.shoot(mana)
+	if holder.has_branch():
+		spawnedBeams += 1 #double!
+	beam.shoot(mana, true)

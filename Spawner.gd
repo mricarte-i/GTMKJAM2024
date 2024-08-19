@@ -7,7 +7,7 @@ extends Node2D
 
 func spawn():
 	var i = 0
-	while i < mobKinds.size() - 1:
+	while i < mobKinds.size():
 		var pos = get_child(i)
 		var spawned = mob.instantiate()
 		world.add_child(spawned)

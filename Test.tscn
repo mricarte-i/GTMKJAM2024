@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://6f4v67tm2hge"]
+[gd_scene load_steps=12 format=3 uid="uid://6f4v67tm2hge"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
 [ext_resource type="Script" path="res://Mobs/SpawnerManager.gd" id="2_5cixv"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://wfanrb85nkls" path="res://Mobs/BasicMob.tres" id="4_stbkw"]
 [ext_resource type="Resource" uid="uid://c5x8nqjvbd44m" path="res://Item/Branch.tres" id="6_g1d15"]
 [ext_resource type="PackedScene" uid="uid://b45lj0xy5ag2p" path="res://interaction/FallenItem.tscn" id="6_itah4"]
+[ext_resource type="Resource" uid="uid://501cu50e3y62" path="res://Mobs/SlimeMob.tres" id="6_yyawk"]
 [ext_resource type="Resource" uid="uid://har5wk7u6u1h" path="res://Item/Autoaim.tres" id="7_g3cof"]
 
 [node name="World" type="Node2D" groups=["world"]]
@@ -22,7 +23,7 @@ script = ExtResource("2_5cixv")
 
 [node name="1" type="Node2D" parent="Camera2D/SpawnerManager"]
 script = ExtResource("3_l24k2")
-mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("4_stbkw")])
+mobKinds = Array[ExtResource("4_3xnbu")]([ExtResource("4_stbkw"), ExtResource("4_stbkw"), ExtResource("6_yyawk"), ExtResource("4_stbkw")])
 
 [node name="Node2D" type="Node2D" parent="Camera2D/SpawnerManager/1"]
 position = Vector2(768, -328)

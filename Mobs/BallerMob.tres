@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MobKind" load_steps=3 format=3 uid="uid://hhq2l3r1bq1p"]
+
+[ext_resource type="Script" path="res://Mobs/MobKind.gd" id="1_fbex8"]
+[ext_resource type="Texture2D" uid="uid://bwa1qpg7nhy35" path="res://sprites/BallerMob.tres" id="2_fmfpu"]
+
+[resource]
+script = ExtResource("1_fbex8")
+name = "Baller"
+texture = ExtResource("2_fmfpu")
+speed = 120.0
+hp = 18
+damage = 6

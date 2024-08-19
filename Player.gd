@@ -21,7 +21,7 @@ func _ready() -> void:
 	GlobalManager.register_player(self)
 
 func tick() -> void:
-	if mana > 0:
+	if mana == MAX_MANA:
 		holder.shoot(mana)
 		mana = 0
 

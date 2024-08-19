@@ -8,7 +8,7 @@ extends RayCast2D
 var isCasting = false
 var dmg = 0
 var hasAimed = false
-
+var isPlus = false
 var rem_mana = 0
 
 # Called when the node enters the scene tree for the first time.
@@ -16,8 +16,11 @@ func _ready() -> void:
 	set_physics_process(false)
 	line.points[1] = Vector2.ZERO
 
-func shoot(value) -> void:
+
+
+func shoot(value, plus: bool = false) -> void:
 	dmg = value
+	isPlus = plus
 	rem_mana = value
 	#print("got",rem_mana)
 	setIsCasting(true)
@@ -43,6 +46,8 @@ func dissapear():
 	var tween = get_tree().create_tween()
 	tween.tween_property(line, "width", 0.0, 0.1)
 	return_mana()
+	if isPlus:
+		ExtendedBeamManager.remove_one()
 	queue_free()
 
 func return_mana():
@@ -66,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	if is_colliding():
 		castPoint = to_local(get_collision_point())
 		var remaining_dmg = get_collider().damage(dmg)
-		if remaining_dmg > 0 && holder.has_continue():
+		if remaining_dmg > 0 && holder.has_continue() && ExtendedBeamManager.can_shoot():
 			ExtendedBeamManager.shoot(
 				remaining_dmg,
 				get_collision_point(),

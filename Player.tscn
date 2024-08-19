@@ -6,14 +6,15 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otcu3"]
 atlas = ExtResource("2_tmxh5")
-region = Rect2(48, 0, 48, 48)
+region = Rect2(48, 48, 48, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1r1t"]
 atlas = ExtResource("2_tmxh5")
 region = Rect2(96, 16, 16, 16)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_23d4e"]
-radius = 29.0172
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3npxa"]
+radius = 17.0
+height = 42.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 position = Vector2(577, 323)
@@ -41,6 +42,7 @@ wait_time = 0.75
 autostart = true
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_23d4e")
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_3npxa")
 
 [connection signal="timeout" from="ManaRegen" to="." method="_on_mana_regen_timeout"]
