@@ -1,5 +1,7 @@
 extends Node
 
+@onready var menu = preload("res://MainMeny.tscn")
+@onready var game = preload("res://Test.tscn")
 # menu, playing, end
 @export var game_state = "playing"
 @export var xp = 0
@@ -112,11 +114,15 @@ func add_xp(value):
 	return
 	
 
+func start_game():
+	get_tree().change_scene_to_packed(game)
+	game_start()
+
 func game_start():
 	game_state = "playing"
 
 func restart():
-	get_tree().quit()
+	get_tree().change_scene_to_packed(menu)
 
 func game_over():
 	game_state = "end"
