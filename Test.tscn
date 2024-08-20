@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://6f4v67tm2hge"]
+[gd_scene load_steps=19 format=4 uid="uid://6f4v67tm2hge"]
 
 [ext_resource type="Script" path="res://Camera.gd" id="1_se7om"]
 [ext_resource type="Script" path="res://Mobs/SpawnerManager.gd" id="2_5cixv"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://ItemSpawner.gd" id="9_jqa3w"]
 [ext_resource type="Script" path="res://Item/Item.gd" id="10_r4r7y"]
 [ext_resource type="Resource" uid="uid://4uh5xsx0kud2" path="res://Item/Continue.tres" id="13_1rnlx"]
+[ext_resource type="PackedScene" uid="uid://c0n8p7ny2sxnb" path="res://UI.tscn" id="16_lf6fe"]
 [ext_resource type="Texture2D" uid="uid://cy2d55667423h" path="res://sprites/tiles.png" id="16_xm80q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rs81h"]
@@ -194,3 +195,5 @@ unique_name_in_owner = true
 [node name="WorldTicker" type="Timer" parent="." groups=["worldticker"]]
 unique_name_in_owner = true
 autostart = true
+
+[node name="Ui" parent="." groups=["ui"] instance=ExtResource("16_lf6fe")]

@@ -12,8 +12,12 @@ extends CanvasLayer
 
 func _ready():
 	pause.visible = false
+	GlobalManager.register_ui(self)
 	restart.connect("button_down", GlobalManager.restart)
-	
+
+func _exit_tree() -> void:
+	GlobalManager.unregister_ui()
+
 func show_choose_boon():
 	var r = randi_range(1,3)
 	match r:

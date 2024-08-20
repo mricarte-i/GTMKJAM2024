@@ -20,7 +20,6 @@ var isHoldingDir = false
 func _ready() -> void:
 	ticker.connect("timeout", tick)
 	GlobalManager.register_player(self)
-	GlobalManager.register_world(world)
 
 func tick() -> void:
 	if mana == MAX_MANA:
@@ -32,7 +31,6 @@ func damage(who) -> void:
 	GlobalManager.display_dmg(who.kind.damage, global_position, true)
 	if health < 0:
 		GlobalManager.unregister_player()
-		GlobalManager.unregister_world()
 		print("im dead")
 		GlobalManager.game_over()
 		queue_free()
