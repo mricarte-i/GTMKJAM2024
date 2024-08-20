@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 	if is_colliding():
 		castPoint = to_local(get_collision_point())
 		var remaining_dmg = get_collider().damage(dmg)
-		if remaining_dmg > 0 && holder.has_continue() > depth && ExtendedBeamManager.can_shoot():
+		if remaining_dmg > 0 && holder != null && holder.has_continue() > depth && ExtendedBeamManager.can_shoot():
 			ExtendedBeamManager.shoot(
 				remaining_dmg,
 				get_collision_point(),

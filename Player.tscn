@@ -21,6 +21,7 @@ position = Vector2(577, 323)
 collision_layer = 5
 motion_mode = 1
 script = ExtResource("1_x8iy7")
+SPEED = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

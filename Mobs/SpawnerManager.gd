@@ -12,11 +12,15 @@ func tick() -> void:
 	ticks +=1
 	GlobalManager.update_time(ticks)
 	if ticks % 60 == 0:
-		difficulty +=1
+		difficulty +=1 
+		difficulty %= 6
+		difficulty = 1 if difficulty==0 else difficulty
 	if ticks % 5 == 0:
 		spawn()
 
 func spawn():
+	if GlobalManager.game_state == "end":
+		return
 	var pattern = get_children().filter(func (obj):
 		return obj.name == str(difficulty)).front()
 	var matching = pattern if pattern != null else get_child(0)

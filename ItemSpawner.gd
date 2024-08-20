@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func tick() -> void:
 	ticks +=1
-	if ticks % 70 == 0:
+	if ticks % 30 == 0:
 		rand_spawn()
 
 func rand_spawn():
@@ -23,7 +23,7 @@ func rand_spawn():
 	world.add_child(fallen)
 	fallen.item = item
 	var angle = randf()*2*PI
-	var xOff = cos(angle)*(dist + ticks)
-	var yOff = sin(angle)*(dist + ticks)
+	var xOff = cos(angle)*(dist)
+	var yOff = sin(angle)*(dist)
 	
 	fallen.global_position = global_position + Vector2(xOff, yOff)

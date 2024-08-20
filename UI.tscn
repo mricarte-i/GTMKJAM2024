@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://c0n8p7ny2sxnb"]
+[gd_scene load_steps=7 format=3 uid="uid://c0n8p7ny2sxnb"]
 
 [ext_resource type="Script" path="res://UIManager.gd" id="1_4xufw"]
 [ext_resource type="FontFile" uid="uid://cic6d4dtgf7k0" path="res://assets/monogram.ttf" id="2_17xbt"]
+[ext_resource type="FontFile" uid="uid://b63qg8c66vqm0" path="res://sprites/Font.tres" id="3_qblo5"]
+[ext_resource type="Texture2D" uid="uid://vqtsaro77gab" path="res://sprites/btn_tex.tres" id="5_c5o26"]
+
+[sub_resource type="Gradient" id="Gradient_djv7c"]
+offsets = PackedFloat32Array(0.382716, 1)
+colors = PackedColorArray(0, 0, 0, 0.411765, 1, 0.9445, 0.91, 0.203922)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n27l"]
+gradient = SubResource("Gradient_djv7c")
+fill_from = Vector2(0, 1)
 
 [node name="Ui" type="CanvasLayer"]
 layer = 10
@@ -56,25 +66,11 @@ offset_left = 453.0
 offset_top = 1.0
 offset_right = 640.0
 offset_bottom = 42.0
-theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_fonts/font = ExtResource("3_qblo5")
 theme_override_font_sizes/font_size = 32
 text = "TIME: 00:00"
 horizontal_alignment = 2
 vertical_alignment = 1
-
-[node name="CHOOSE" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureButton" type="TextureButton" parent="CHOOSE"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Pause Menu" type="Control" parent="."]
 visible = false
@@ -84,3 +80,74 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pause Menu"]
+position = Vector2(319.5, 240)
+scale = Vector2(10.0156, 7.5)
+texture = SubResource("GradientTexture2D_0n27l")
+
+[node name="thanks" type="Label" parent="Pause Menu"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 38.0
+offset_right = 640.0
+offset_bottom = 102.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 72
+text = "Thank you for playing"
+horizontal_alignment = 1
+
+[node name="score" type="Label" parent="Pause Menu"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 166.0
+offset_right = 640.0
+offset_bottom = 230.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 46
+text = "Final Score:"
+horizontal_alignment = 1
+
+[node name="time" type="Label" parent="Pause Menu"]
+texture_filter = 1
+layout_mode = 0
+offset_top = 246.0
+offset_right = 640.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("2_17xbt")
+theme_override_font_sizes/font_size = 38
+text = "Total time:"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Pause Menu"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.917
+anchor_right = 0.5
+anchor_bottom = 0.917
+offset_left = -119.0
+offset_top = -32.16
+offset_right = 119.0
+offset_bottom = 31.84
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("5_c5o26")
+texture_pressed = ExtResource("5_c5o26")
+texture_hover = ExtResource("5_c5o26")
+texture_disabled = ExtResource("5_c5o26")
+texture_focused = ExtResource("5_c5o26")
+
+[node name="Label" type="Label" parent="Pause Menu/TextureButton"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_qblo5")
+theme_override_font_sizes/font_size = 48
+text = "RESTART"
+horizontal_alignment = 1
+vertical_alignment = 1

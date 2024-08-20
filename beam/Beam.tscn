@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://s2mpgb6gdreh"]
+[gd_scene load_steps=9 format=3 uid="uid://s2mpgb6gdreh"]
 
 [ext_resource type="Script" path="res://beam/Beam.gd" id="1_tvi82"]
-[ext_resource type="Texture2D" uid="uid://jfpf52fnvffe" path="res://assets/icon.svg" id="2_g0pef"]
+[ext_resource type="Texture2D" uid="uid://cpcp8ecs4jux6" path="res://sprites/go-line-8x.png" id="2_ghlhp"]
 
 [sub_resource type="Gradient" id="Gradient_c7mu6"]
 offsets = PackedFloat32Array(0, 0.537367, 0.672598, 1)
@@ -19,14 +19,21 @@ curve = SubResource("Curve_heyk1")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_76nwc"]
 particle_flag_disable_z = true
+angle_min = -19.2
+angle_max = 268.8
 initial_velocity_max = 110.14
 gravity = Vector3(0, 0, 0)
-scale_min = 0.1
-scale_max = 0.25
+scale_min = 2.0
+scale_max = 15.0
 scale_curve = SubResource("CurveTexture_86yst")
 color_ramp = SubResource("GradientTexture1D_3peyh")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_55jxe"]
+atlas = ExtResource("2_ghlhp")
+region = Rect2(79, 1, 2, 2)
+
 [node name="Beam" type="RayCast2D"]
+z_index = 10
 target_position = Vector2(200, 0)
 collision_mask = 2
 script = ExtResource("1_tvi82")
@@ -36,9 +43,8 @@ points = PackedVector2Array(0, 0, 200, 0)
 default_color = Color(0.648, 5.946, 12.972, 1)
 
 [node name="ParticlesStart" type="GPUParticles2D" parent="."]
-emitting = false
 process_material = SubResource("ParticleProcessMaterial_76nwc")
-texture = ExtResource("2_g0pef")
+texture = SubResource("AtlasTexture_55jxe")
 lifetime = 0.3
 
 [node name="Area2D" type="Area2D" parent="."]

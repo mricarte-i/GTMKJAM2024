@@ -38,6 +38,8 @@ func _update() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if target == null:
+		queue_free()
 	last_pos = target.global_position
 	ticker.connect("timeout", tick)
 	_update()

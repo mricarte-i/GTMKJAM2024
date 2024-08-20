@@ -1,11 +1,12 @@
 extends CharacterBody2D
 
-
+@onready var world = get_tree().get_first_node_in_group("world")
 @onready var ticker = get_tree().get_first_node_in_group("worldticker")
 
-@export var MAX_HEALTH = 3
+@export var MAX_HEALTH = 2
 var health = MAX_HEALTH
 
+@onready var mana_timer = $ManaRegen
 @export var MAX_MANA = 3
 var mana = MAX_MANA
 @onready var holder = $Holder
@@ -19,6 +20,7 @@ var isHoldingDir = false
 func _ready() -> void:
 	ticker.connect("timeout", tick)
 	GlobalManager.register_player(self)
+	GlobalManager.register_world(world)
 
 func tick() -> void:
 	if mana == MAX_MANA:
@@ -30,6 +32,7 @@ func damage(who) -> void:
 	GlobalManager.display_dmg(who.kind.damage, global_position, true)
 	if health < 0:
 		GlobalManager.unregister_player()
+		GlobalManager.unregister_world()
 		print("im dead")
 		GlobalManager.game_over()
 		queue_free()

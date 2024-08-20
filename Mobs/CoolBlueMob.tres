@@ -7,6 +7,6 @@
 script = ExtResource("1_3dkxm")
 name = "Cool Blue"
 texture = ExtResource("2_37kcn")
-speed = 190.0
+speed = 120.0
 hp = 30
 damage = 12

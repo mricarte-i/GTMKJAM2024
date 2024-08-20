@@ -7,6 +7,6 @@
 script = ExtResource("1_80sqt")
 name = "Basic Mob"
 texture = ExtResource("2_rumhq")
-speed = 90.0
+speed = 70.0
 hp = 4
 damage = 1

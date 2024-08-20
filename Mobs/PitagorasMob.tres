@@ -7,6 +7,6 @@
 script = ExtResource("1_tj0ss")
 name = "Pitagoras"
 texture = ExtResource("2_u2oto")
-speed = 150.0
+speed = 100.0
 hp = 12
 damage = 8
