@@ -8,5 +8,5 @@ script = ExtResource("1_7ocuj")
 name = "Slime"
 texture = ExtResource("2_khdm2")
 speed = 60.0
-hp = 6
+hp = 10
 damage = 2

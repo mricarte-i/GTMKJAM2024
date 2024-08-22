@@ -83,6 +83,9 @@ func _physics_process(delta: float) -> void:
 		return
 	#var direction = last_pos - position
 	var direction = position.direction_to(last_pos)
+	
+	sprite.flip_h = direction.x > 0
+	
 	velocity = direction * SPEED
 	move_and_slide()
 	if not target == null:

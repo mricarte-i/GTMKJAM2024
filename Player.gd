@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var ticker = get_tree().get_first_node_in_group("worldticker")
 
 @onready var sfx = $hurt
+@onready var sprite = $Sprite2D
 
 @export var MAX_HEALTH = 2
 var health = MAX_HEALTH
@@ -50,6 +51,7 @@ func _process(delta: float) -> void:
 	if not (is_zero_approx(direction.x) and is_zero_approx(direction.y)) and not isHoldingDir:
 		facing = direction
 
+	sprite.flip_h = facing.x <= 0
 	holder.rotation = lerp_angle(holder.rotation, facing.angle(), 0.2)
 
 func _physics_process(delta: float) -> void:

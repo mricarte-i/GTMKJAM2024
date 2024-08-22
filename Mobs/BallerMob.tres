@@ -8,5 +8,5 @@ script = ExtResource("1_fbex8")
 name = "Baller"
 texture = ExtResource("2_fmfpu")
 speed = 90.0
-hp = 18
+hp = 24
 damage = 6

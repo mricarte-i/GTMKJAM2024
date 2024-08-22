@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b53wiem2heyii"]
 
 [ext_resource type="Script" path="res://Item/ActionItem.gd" id="1_lj3u0"]
-[ext_resource type="Texture2D" uid="uid://cx1gjxt4rw8e3" path="res://assets/Paper UI/1 Sprites/Content/1 Items/6.png" id="2_q8p4u"]
+[ext_resource type="Texture2D" path="res://assets/Paper UI/1 Sprites/Content/1 Items/6.png" id="2_q8p4u"]
 
 [node name="ActionItem" type="Node2D"]
 script = ExtResource("1_lj3u0")
@@ -13,3 +13,10 @@ texture = ExtResource("2_q8p4u")
 
 [node name="End" type="Node2D" parent="."]
 position = Vector2(16, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(0, 0, 77, -110, 165, -70, 200, 0, 166, 73, 80, 104)

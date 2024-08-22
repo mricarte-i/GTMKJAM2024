@@ -43,7 +43,7 @@ func shoot(mana, pos, rot, depth):
 	beam.position = pos
 	beam.rotation = rot
 	spawnedBeams += 1
-	if holder.has_branch():
+	if not (holder.has_branch() <= depth):
 		spawnedBeams += 1 #double!
 	if spawnedBeams == MAX_SPAWNED_BEAMS:
 		cooldown()

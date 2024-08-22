@@ -83,7 +83,7 @@ func add_xp(value):
 		ui.show_choose_boon()
 	elif xp in range(80, 160) and lvl < 4:
 		lvl = 4
-		player.MAX_MANA = 16
+		player.MAX_MANA = 10
 		print("LVL.UP")
 		var tween = get_tree().create_tween()
 		tween.tween_property(
@@ -92,7 +92,7 @@ func add_xp(value):
 		ui.show_choose_boon()
 	elif xp in range(160, 400) and lvl < 5:
 		lvl = 5
-		player.MAX_MANA = 32
+		player.MAX_MANA = 12
 		print("LVL.UP")
 		var tween = get_tree().create_tween()
 		tween.tween_property(
@@ -101,7 +101,7 @@ func add_xp(value):
 		ui.show_choose_boon()
 	elif xp in range(400, 1000) and lvl < 6:
 		lvl = 6
-		player.MAX_MANA = 64
+		player.MAX_MANA = 14
 		print("LVL.UP")
 		var tween = get_tree().create_tween()
 		tween.tween_property(
@@ -110,13 +110,17 @@ func add_xp(value):
 		ui.show_choose_boon()
 	elif xp in range(1000, 9999) and lvl < 7:
 		lvl = 7
-		player.MAX_MANA = 128
+		player.MAX_MANA = 16
 		print("WINNER IS U")
 		var tween = get_tree().create_tween()
 		tween.tween_property(
 			camera, "zoom", Vector2(0.6, 0.6), 0.5
 		).set_ease(Tween.EASE_OUT)
 		#game_over()
+		ui.show_choose_boon()
+	elif xp in range(1000, 9999) and xp % 50 ==0:
+		ui.show_choose_boon()
+		player.MAX_MANA += 2
 	return
 	
 

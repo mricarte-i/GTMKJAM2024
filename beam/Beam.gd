@@ -67,7 +67,8 @@ func sort_by_dist(a1, a2):
 
 func _physics_process(delta: float) -> void:
 	var holder: Holder = ExtendedBeamManager.holder
-	if !hasAimed and holder != null and holder.has_autoaim() and area.has_overlapping_bodies():
+	
+	if depth > 0 and !hasAimed and holder != null and holder.has_autoaim() and area.has_overlapping_bodies():
 		var enemies = area.get_overlapping_bodies()
 		enemies.sort_custom(sort_by_dist)
 		var facing = enemies[0].global_position - global_position
