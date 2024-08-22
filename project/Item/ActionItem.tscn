@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b53wiem2heyii"]
+[gd_scene load_steps=4 format=3 uid="uid://b53wiem2heyii"]
 
 [ext_resource type="Script" path="res://Item/ActionItem.gd" id="1_lj3u0"]
-[ext_resource type="Texture2D" path="res://assets/Paper UI/1 Sprites/Content/1 Items/6.png" id="2_q8p4u"]
+[ext_resource type="Texture2D" uid="uid://duih53mnutwek" path="res://sprites/spritesheet.png" id="2_hgiwt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4v86g"]
+atlas = ExtResource("2_hgiwt")
+region = Rect2(64, 64, 16, 16)
 
 [node name="ActionItem" type="Node2D"]
 script = ExtResource("1_lj3u0")
@@ -9,7 +13,7 @@ script = ExtResource("1_lj3u0")
 [node name="Icon" type="Sprite2D" parent="."]
 texture_filter = 1
 position = Vector2(8, 0)
-texture = ExtResource("2_q8p4u")
+texture = SubResource("AtlasTexture_4v86g")
 
 [node name="End" type="Node2D" parent="."]
 position = Vector2(16, 0)
