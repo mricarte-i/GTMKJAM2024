@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = $Label
 
 const base_text = "[L] to "
@@ -30,6 +29,7 @@ func _process(delta: float) -> void:
 		
 		
 func sort_by_dist_to_player(a1, a2):
+	var player = GlobalManager.player
 	var a1_to_player = player.global_position.distance_to(a1.global_position)
 	var a2_to_player = player.global_position.distance_to(a2.global_position)
 	return a1_to_player < a2_to_player

@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b53wiem2heyii" path="res://Item/ActionItem.tscn" id="1_7s8cr"]
 [ext_resource type="Script" path="res://Item/Item.gd" id="1_ihuli"]
-[ext_resource type="Texture2D" uid="uid://bmybgox6f5010" path="res://assets/Paper UI/1 Sprites/Content/4 Buttons/18.png" id="3_l24dv"]
+[ext_resource type="Texture2D" uid="uid://dlf70f0tmtaag" path="res://sprites/Continue.tres" id="3_opb4a"]
 
 [resource]
 script = ExtResource("1_ihuli")
 name = "CONTINUE"
 itemScene = ExtResource("1_7s8cr")
 hint = "pick up 'CONTINUE'"
-texture = ExtResource("3_l24dv")
+texture = ExtResource("3_opb4a")

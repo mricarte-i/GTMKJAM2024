@@ -17,6 +17,22 @@ func tick() -> void:
 	if ticks % 30 == 0:
 		rand_spawn()
 
+func _unhandled_input(event: InputEvent) -> void:
+	if not OS.is_debug_build():
+		return
+	if Input.is_action_just_pressed("cheat_spawn_continue"):
+		spawn(itemPool[0])
+	if Input.is_action_just_pressed("cheat_spawn_branch"):
+		spawn(itemPool[1])
+	if Input.is_action_just_pressed("cheat_spawn_continue"):
+		spawn(itemPool[2])
+
+func spawn(item):
+	var fallen = fallenItem.instantiate()
+	world.add_child(fallen)
+	fallen.item = item
+	fallen.global_position = global_position
+
 func rand_spawn():
 	var item = itemPool.pick_random()
 	var fallen = fallenItem.instantiate()

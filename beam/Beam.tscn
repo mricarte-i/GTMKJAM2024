@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://s2mpgb6gdreh"]
+[gd_scene load_steps=10 format=3 uid="uid://s2mpgb6gdreh"]
 
 [ext_resource type="Script" path="res://beam/Beam.gd" id="1_tvi82"]
 [ext_resource type="Texture2D" uid="uid://cpcp8ecs4jux6" path="res://sprites/go-line-8x.png" id="2_ghlhp"]
+[ext_resource type="AudioStream" uid="uid://d2iyq5calnqtu" path="res://sfx/shoot.mp3" id="3_fvahl"]
 
 [sub_resource type="Gradient" id="Gradient_c7mu6"]
 offsets = PackedFloat32Array(0, 0.537367, 0.672598, 1)
@@ -53,3 +54,6 @@ collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(17, 69, 41, 137, 124, 119, 182, 70, 201, 0, 177, -65, 112, -128, 34, -137, 9, -67, 0, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fvahl")

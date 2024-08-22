@@ -21,6 +21,12 @@ func register_player(new_player):
 	player = new_player
 func unregister_player():
 	player = null
+
+@export var world = null
+func register_world(new_world):
+	world = new_world
+func unregister_world():
+	world = null
 	
 @export var camera = null
 func register_camera(new_camera):
@@ -40,7 +46,7 @@ func update_time(value):
 	if game_state == "end":
 		return
 	time = value
-	if time == 420:
+	if time == 300:
 		game_over()
 	
 func add_xp(value):

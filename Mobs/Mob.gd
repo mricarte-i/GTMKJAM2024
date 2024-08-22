@@ -9,6 +9,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var collider = $CollisionShape2D
 
+@onready var sfx = $AudioStreamPlayer2D
 var last_pos: Vector2
 var isTouchingPlayer = false
 
@@ -58,6 +59,8 @@ func damage(value):
 	var diff = health - value
 	health -= value
 	GlobalManager.display_dmg(value, global_position)
+	sfx.pitch_scale = randf_range(0.8, 1.2)
+	sfx.play()
 	if diff < 0:
 		#start death anim
 		anim.play("death")

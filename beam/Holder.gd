@@ -1,6 +1,9 @@
+class_name Holder
 extends Node2D
 
 @export var slots = []
+
+#@onready var world = get_tree().get_first_node_in_group("world")
 
 @export var fallenItem = preload("res://interaction/FallenItem.tscn")
 @export var actionItem = preload("res://Item/ActionItem.tscn")
@@ -10,12 +13,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	ExtendedBeamManager.register_holder(self)
 
+func _exit_tree() -> void:
+	ExtendedBeamManager.unregister_holder()
+	
 func shoot(mana):
-	var beam = beamTemp.instantiate() if not has_branch() else dubBeamTemp.instantiate()
+	var beam = beamTemp.instantiate() if has_branch() == 0 else dubBeamTemp.instantiate()
 	#var beam = beamTemp.instantiate()
-	get_tree().root.get_child(0).add_child(beam)
+	GlobalManager.world.add_child(beam)
 	var pos = end
 	if slots.size() > 0 && end.get_child_count() > 0:
 		var last_slot_end = find_last_end(end.get_child(0))
@@ -61,10 +67,10 @@ func has_continue():
 	
 func has_branch():
 	if slots.size() == 0:
-		return false
+		return 0
 	var matching = slots.filter(func (obj):
-		return obj.name == "BRANCH").front()
-	return true if matching != null else false
+		return obj.name == "BRANCH")
+	return matching.size()
 
 func has_autoaim():
 	if slots.size() == 0:

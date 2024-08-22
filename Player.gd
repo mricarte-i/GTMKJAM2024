@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var world = get_tree().get_first_node_in_group("world")
 @onready var ticker = get_tree().get_first_node_in_group("worldticker")
 
+@onready var sfx = $hurt
+
 @export var MAX_HEALTH = 2
 var health = MAX_HEALTH
 
@@ -20,6 +22,7 @@ var isHoldingDir = false
 func _ready() -> void:
 	ticker.connect("timeout", tick)
 	GlobalManager.register_player(self)
+	GlobalManager.register_world(get_parent())
 
 func tick() -> void:
 	if mana == MAX_MANA:
@@ -29,8 +32,11 @@ func tick() -> void:
 func damage(who) -> void:
 	health -= who.kind.damage #maybe a dmg number?
 	GlobalManager.display_dmg(who.kind.damage, global_position, true)
+	sfx.pitch_scale = randf_range(0.8, 1.2)
+	sfx.play()
 	if health < 0:
 		GlobalManager.unregister_player()
+		GlobalManager.unregister_world()
 		print("im dead")
 		GlobalManager.game_over()
 		queue_free()

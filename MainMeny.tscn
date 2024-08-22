@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://rsi4jjqwlrex"]
+[gd_scene load_steps=10 format=3 uid="uid://rsi4jjqwlrex"]
 
 [ext_resource type="Texture2D" uid="uid://x8dfdr66n7r5" path="res://sprites/title.png" id="1_jthyh"]
 [ext_resource type="Script" path="res://main_menu.gd" id="1_tb1jo"]
 [ext_resource type="Texture2D" uid="uid://vqtsaro77gab" path="res://sprites/btn_tex.tres" id="2_im3q2"]
 [ext_resource type="FontFile" uid="uid://b63qg8c66vqm0" path="res://sprites/Font.tres" id="3_54bvg"]
 [ext_resource type="FontFile" uid="uid://cic6d4dtgf7k0" path="res://assets/monogram.ttf" id="4_ockgj"]
+[ext_resource type="AudioStream" uid="uid://bwmghx1ueqtxo" path="res://sfx/click.mp3" id="6_1h1cr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1gcgx"]
 atlas = ExtResource("1_jthyh")
@@ -54,7 +55,7 @@ position = Vector2(148, 328)
 scale = Vector2(3.875, 3.25)
 texture = SubResource("GradientTexture2D_mqjm7")
 
-[node name="thanks" type="Label" parent="."]
+[node name="hints" type="Label" parent="."]
 texture_filter = 1
 offset_left = 24.0
 offset_top = 224.0
@@ -76,5 +77,8 @@ Try to survive for 5 minutes
 "
 horizontal_alignment = 1
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1h1cr")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

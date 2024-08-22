@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c0n8p7ny2sxnb"]
+[gd_scene load_steps=12 format=3 uid="uid://c0n8p7ny2sxnb"]
 
 [ext_resource type="Script" path="res://UIManager.gd" id="1_4xufw"]
 [ext_resource type="FontFile" uid="uid://cic6d4dtgf7k0" path="res://assets/monogram.ttf" id="2_17xbt"]
 [ext_resource type="FontFile" uid="uid://b63qg8c66vqm0" path="res://sprites/Font.tres" id="3_qblo5"]
+[ext_resource type="AudioStream" uid="uid://cmujx11mdpsm6" path="res://sfx/heal.mp3" id="5_54r38"]
 [ext_resource type="Texture2D" uid="uid://vqtsaro77gab" path="res://sprites/btn_tex.tres" id="5_c5o26"]
+[ext_resource type="AudioStream" uid="uid://2cr3ib3x5iqk" path="res://sfx/regen.mp3" id="6_g2arw"]
+[ext_resource type="AudioStream" uid="uid://cr6oo48jum2kg" path="res://sfx/speed.mp3" id="7_eaek2"]
+[ext_resource type="AudioStream" uid="uid://bwmghx1ueqtxo" path="res://sfx/click.mp3" id="8_ou27f"]
+[ext_resource type="AudioStream" uid="uid://cjb4nq5najo83" path="res://sfx/thanks.mp3" id="9_0nfpt"]
 
 [sub_resource type="Gradient" id="Gradient_djv7c"]
 offsets = PackedFloat32Array(0.382716, 1)
@@ -151,3 +156,18 @@ theme_override_font_sizes/font_size = 48
 text = "RESTART"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="heal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_54r38")
+
+[node name="manaregen" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_g2arw")
+
+[node name="speed" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_eaek2")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ou27f")
+
+[node name="tahnks" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_0nfpt")

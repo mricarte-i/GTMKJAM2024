@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bclpvhtlsbyc0"]
+[gd_scene load_steps=8 format=3 uid="uid://bclpvhtlsbyc0"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_x8iy7"]
 [ext_resource type="Texture2D" uid="uid://duih53mnutwek" path="res://sprites/spritesheet.png" id="2_tmxh5"]
 [ext_resource type="Script" path="res://beam/Holder.gd" id="3_ntgts"]
+[ext_resource type="AudioStream" uid="uid://bb7qsob0i5eji" path="res://sfx/hurt.mp3" id="4_m4o22"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_otcu3"]
 atlas = ExtResource("2_tmxh5")
@@ -45,5 +46,8 @@ autostart = true
 [node name="Collider" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_3npxa")
+
+[node name="hurt" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_m4o22")
 
 [connection signal="timeout" from="ManaRegen" to="." method="_on_mana_regen_timeout"]
