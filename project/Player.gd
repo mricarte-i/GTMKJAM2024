@@ -5,6 +5,7 @@ extends CharacterBody2D
 
 @onready var sfx = $hurt
 @onready var sprite = $Sprite2D
+@onready var shadow = $Sprite2D/Shadow
 
 @export var MAX_HEALTH = 2
 var health = MAX_HEALTH
@@ -52,6 +53,8 @@ func _process(delta: float) -> void:
 		facing = direction
 
 	sprite.flip_h = facing.x <= 0
+	shadow.flip_h = facing.x <= 0
+	#sprite.scale = Vector2(-1 if facing.x <= 0 else 1, 1)
 	holder.rotation = lerp_angle(holder.rotation, facing.angle(), 0.2)
 
 func _physics_process(delta: float) -> void:

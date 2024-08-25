@@ -40,7 +40,7 @@ func register_ui(new_ui):
 func unregister_ui():
 	ui = null
 
-	
+
 var time = 0
 func update_time(value):
 	if game_state == "end":
@@ -137,6 +137,7 @@ func restart():
 func game_over():
 	game_state = "end"
 	print("rip")
+	ui.pause_game()
 
 func funny_text(text):
 	if player != null:

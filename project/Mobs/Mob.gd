@@ -5,8 +5,10 @@ extends CharacterBody2D
 @onready var ticker = get_tree().get_first_node_in_group("worldticker")
 @onready var target = get_tree().get_first_node_in_group("player")
 
-@onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
+@onready var shadow = $Sprite2D/SpriteShadow
+
+@onready var anim = $AnimationPlayer
 @onready var collider = $CollisionShape2D
 
 @onready var sfx = $AudioStreamPlayer2D
@@ -33,6 +35,7 @@ var stopped = false
 func _update() -> void:
 	if kind != null:
 		sprite.texture = kind.texture
+		shadow.texture = kind.texture
 		SPEED = kind.speed
 		MAX_HEALTH = kind.hp
 		health = MAX_HEALTH
@@ -85,6 +88,8 @@ func _physics_process(delta: float) -> void:
 	var direction = position.direction_to(last_pos)
 	
 	sprite.flip_h = direction.x > 0
+	shadow.flip_h = direction.x > 0
+	#sprite.scale = Vector2(-1 if direction.x > 0 else 1, 1)
 	
 	velocity = direction * SPEED
 	move_and_slide()

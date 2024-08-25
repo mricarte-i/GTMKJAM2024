@@ -33,7 +33,7 @@ color_ramp = SubResource("GradientTexture1D_3peyh")
 atlas = ExtResource("2_ghlhp")
 region = Rect2(79, 1, 2, 2)
 
-[node name="Beam" type="RayCast2D"]
+[node name="Beam" type="RayCast2D" groups=["beam"]]
 z_index = 10
 target_position = Vector2(200, 0)
 collision_mask = 2

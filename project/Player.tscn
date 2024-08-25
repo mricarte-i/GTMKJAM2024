@@ -28,12 +28,28 @@ SPEED = 200.0
 texture_filter = 1
 texture = SubResource("AtlasTexture_otcu3")
 
+[node name="Shadow" type="Sprite2D" parent="Sprite2D"]
+modulate = Color(0.06, 0.06, 0.06, 0.270588)
+self_modulate = Color(0.806875, 1.03e-05, 0.542994, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(5, 5)
+texture = SubResource("AtlasTexture_otcu3")
+
 [node name="Holder" type="Node2D" parent="." groups=["wand"]]
 script = ExtResource("3_ntgts")
 
 [node name="Sprite2D" type="Sprite2D" parent="Holder"]
 texture_filter = 1
 position = Vector2(61, 0)
+texture = SubResource("AtlasTexture_k1r1t")
+
+[node name="Shadow" type="Sprite2D" parent="Holder/Sprite2D"]
+modulate = Color(0.06, 0.06, 0.06, 0.270588)
+self_modulate = Color(0.806875, 1.03e-05, 0.542994, 1)
+show_behind_parent = true
+texture_filter = 1
+position = Vector2(5, 5)
 texture = SubResource("AtlasTexture_k1r1t")
 
 [node name="end" type="Node2D" parent="Holder"]

@@ -20,9 +20,9 @@ boot_splash/minimum_display_time=250
 
 [autoload]
 
+GlobalManager="*res://Global/GlobalManager.tscn"
 InteractionManager="*res://interaction/interaction area/InteractionManager.tscn"
 ExtendedBeamManager="*res://beam/ExtendedBeamManager.gd"
-GlobalManager="*res://GlobalManager.gd"
 
 [display]
 
