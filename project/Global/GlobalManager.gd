@@ -132,6 +132,7 @@ func game_start():
 	game_state = "playing"
 
 func restart():
+	xp = 0
 	get_tree().change_scene_to_packed(menu)
 
 func game_over():

@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="GMTKJAM2024"
+config/name="Sorcerer's Field Exam"
 run/main_scene="res://MainMeny.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 boot_splash/image="res://sprites/splash.png"
